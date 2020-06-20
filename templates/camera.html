@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Name of the Camera Application -->
+    <title>Capture</title>
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- Camera Component -->
+    <main id="cam">
+      <!-- Camera Sensor -->
+      <canvas id="camera-sensor"></canvas>
+      <!-- Camera Viewer -->
+      <video id="camera-view" autoplay playsinline></video>
+
+      <!-- Camera Output -->
+      <img src="//:0" alt="" id="camera-output">
+      <!-- Camera Trigger -->
+      <button id="camera-trigger">Capture</button>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
