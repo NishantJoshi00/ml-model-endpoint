@@ -14,3 +14,9 @@ runtimes = [
 		"name": "Video"
 	}
 ]
+
+def get_runtimes(idx):
+	for i in runtimes:
+		if i['id'] == idx:
+			return i
+	return None

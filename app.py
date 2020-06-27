@@ -1,6 +1,6 @@
-from flask import Flask, request, url_for, render_template
+from flask import Flask, request, url_for, render_template, redirect
 
-from functions import runtimes
+from functions import runtimes, get_runtimes
 
 app = Flask(__name__)
 
@@ -10,7 +10,13 @@ def index():
 
 @app.route("/model/<int:model_id>", methods=['GET', 'POST'])
 def model(model_id):
-	pass
+	if request.method == "GET":
+		rt = get_runtimes(model_id)
+		if rt == None:
+			return redirect("/", code=404)
+		return render_template(rt['template'], where="/model/{}".format(model_id))
+	else:
+		pass
 
 if __name__ == "__main__":
 	app.run(debug=True)
