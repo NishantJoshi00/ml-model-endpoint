@@ -16,7 +16,10 @@ def model(model_id):
 			return redirect("/", code=404)
 		return render_template(rt['template'], where="/model/{}".format(model_id))
 	else:
-		pass
+		rt = get_runtimes(model_id)
+		if rt == None:
+			return redirect("/", code=404)
+		return rt['model-predict'](request)
 
 if __name__ == "__main__":
 	app.run(debug=True)
